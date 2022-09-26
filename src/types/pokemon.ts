@@ -75,7 +75,7 @@
     export interface Other {
         dream_world: DreamWorld;
         home: Home;
-        official-artwork: OfficialArtwork;
+        officialArtwork: OfficialArtwork;
     }
 
     export interface RedBlue {
@@ -97,7 +97,7 @@
     }
 
     export interface GenerationI {
-        red-blue: RedBlue;
+        redBlue: RedBlue;
         yellow: Yellow;
     }
 
@@ -155,8 +155,8 @@
 
     export interface GenerationIii {
         emerald: Emerald;
-        firered-leafgreen: FireredLeafgreen;
-        ruby-sapphire: RubySapphire;
+        fireredLeafgreen: FireredLeafgreen;
+        rubySapphire: RubySapphire;
     }
 
     export interface DiamondPearl {
@@ -193,8 +193,8 @@
     }
 
     export interface GenerationIv {
-        diamond-pearl: DiamondPearl;
-        heartgold-soulsilver: HeartgoldSoulsilver;
+        diamondPearl: DiamondPearl;
+        heartgoldSoulsilver: HeartgoldSoulsilver;
         platinum: Platinum;
     }
 
@@ -222,7 +222,7 @@
     }
 
     export interface GenerationV {
-        black-white: BlackWhite;
+        blackWhite: BlackWhite;
     }
 
     export interface OmegarubyAlphasapphire {
@@ -240,8 +240,8 @@
     }
 
     export interface GenerationVi {
-        omegaruby-alphasapphire: OmegarubyAlphasapphire;
-        x-y: XY;
+        omegarubyAlphasapphire: OmegarubyAlphasapphire;
+        xy: XY;
     }
 
     export interface Icons {
@@ -258,7 +258,7 @@
 
     export interface GenerationVii {
         icons: Icons;
-        ultra-sun-ultra-moon: UltraSunUltraMoon;
+        ultraSunUltraMoon: UltraSunUltraMoon;
     }
 
     export interface Icons2 {
@@ -271,14 +271,14 @@
     }
 
     export interface Versions {
-        generation-i: GenerationI;
-        generation-ii: GenerationIi;
-        generation-iii: GenerationIii;
-        generation-iv: GenerationIv;
-        generation-v: GenerationV;
-        generation-vi: GenerationVi;
-        generation-vii: GenerationVii;
-        generation-viii: GenerationViii;
+        generationi: GenerationI;
+        generationii: GenerationIi;
+        generationiii: GenerationIii;
+        generationiv: GenerationIv;
+        generationv: GenerationV;
+        generationvi: GenerationVi;
+        generationvii: GenerationVii;
+        generationviii: GenerationViii;
     }
 
     export interface Sprites {
@@ -290,7 +290,7 @@
         front_female?: any;
         front_shiny: string;
         front_shiny_female?: any;
-        other: Other;
+        other: any;
         versions: Versions;
     }
 
@@ -338,3 +338,20 @@
 
 
 
+
+
+export interface Result {
+    name: string;
+    url: string;
+}
+
+export interface AllPokemons {
+    count: number;
+    next: string;
+    previous?: any;
+    results: Result[];
+}
+
+    
+    
+    

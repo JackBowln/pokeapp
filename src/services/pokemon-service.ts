@@ -1,5 +1,5 @@
 import HttpClient from '../plugins/httpClient';
-import type { Pokemon } from '../types/pokemon';
+import type { AllPokemons, Pokemon } from '../types/pokemon';
 
 export class PokemonApi extends HttpClient {
   private static classInstance?: PokemonApi;
@@ -18,8 +18,8 @@ export class PokemonApi extends HttpClient {
 
   private paginatePokemons = (currentPage: number = 1, perPage: number) => {
     this.URLs = []
-    for(let i = currentPage*perPage - perPage ; i <= currentPage*perPage; i++){
-      this.URLs.push("https://pokeapi.co/api/v2/pokemon/"+i)
+    for(let i = currentPage*perPage - perPage; i <= currentPage*perPage -1; i++){
+      this.URLs.push("https://pokeapi.co/api/v2/pokemon/"+(i+1))
     }
   }
 
@@ -30,7 +30,12 @@ export class PokemonApi extends HttpClient {
 
   private FetchData = async (URL: string) => await  this.instance.get(URL)
 
-  public getPokemons = () => this.instance.get<Pokemon[]>('/all');
+  public getPokemons = () => this.instance.get<AllPokemons>('/');
+
+  public getPokemonsCount = async () => {
+    const response = await this.getPokemons()
+    return response.count
+  }
   
-  public getPokemon = (name: string) => this.instance.get<Pokemon>(`/name/${name}`);
+  public getPokemon = (name: string) => this.instance.get<Pokemon>(`/${name}`);
 }
