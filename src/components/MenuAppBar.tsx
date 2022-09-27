@@ -11,8 +11,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 
-const pages = ['Pokemons', 'Favorites'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [
+  {title:'Pokemons', href: "/"},
+  {title:'Favorites', href: "/favorites"}
+];
 const MenuAppBar = (props: any) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [bookmarksOnly, setBookmarksOnly] = React.useState(false);
@@ -49,9 +51,7 @@ const MenuAppBar = (props: any) => {
             }}
           >
             HOME
-          </Typography>
-          <label htmlFor="check">Bookmarked users only</label>
-          <input id={"check"} type="checkbox" checked={bookmarksOnly} onChange={props.changeBookMarksOnly} />
+          </Typography> 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -82,8 +82,8 @@ const MenuAppBar = (props: any) => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.title} href={page.href} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -110,11 +110,12 @@ const MenuAppBar = (props: any) => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.title}
                 onClick={handleCloseNavMenu}
+                href={page.href}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {page.title}
               </Button>
             ))}
           </Box>

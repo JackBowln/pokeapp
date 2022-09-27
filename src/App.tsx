@@ -5,6 +5,7 @@ import {
 import './App.css';
 import MenuAppBar from './components/MenuAppBar';
 import { PokemonDetails } from './components/PokemonDetails';
+import PokemonFavorites from "./components/PokemonFavorites";
 import PokemonList from './components/PokemonList';
 function App() {
   const [bookmarksOnly, setBookmarksOnly] = useState(false);
@@ -19,7 +20,10 @@ function App() {
           <Route exact path="/">
             <PokemonList/>
           </Route>
-            <Route path="/:name" children={<PokemonDetails />} />
+            <Route path="/details/:name" children={<PokemonDetails />} />
+          <Route exact path="/favorites">
+            <PokemonFavorites/>
+          </Route>
         </Switch>
     </Router>
     </div>

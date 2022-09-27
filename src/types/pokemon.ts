@@ -258,7 +258,7 @@
 
     export interface GenerationVii {
         icons: Icons;
-        ultraSunUltraMoon: UltraSunUltraMoon;
+        "ultra-sun-ultra-moon": UltraSunUltraMoon;
     }
 
     export interface Icons2 {
@@ -271,14 +271,14 @@
     }
 
     export interface Versions {
-        generationi: GenerationI;
-        generationii: GenerationIi;
-        generationiii: GenerationIii;
-        generationiv: GenerationIv;
-        generationv: GenerationV;
-        generationvi: GenerationVi;
-        generationvii: GenerationVii;
-        generationviii: GenerationViii;
+        "generation-i": GenerationI;
+        "generation-ii": GenerationIi;
+        "generation-iii": GenerationIii;
+        "generation-iv": GenerationIv;
+        "generation-v": GenerationV;
+        "generation-vi": GenerationVi;
+        "generation-vii": GenerationVii;
+        "generation-viii": GenerationViii;
     }
 
     export interface Sprites {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Pokemon } from "../types/pokemon";
 
 function useBookmarks() {
   const [bookmarks, setBookmarks] = useState(() => {
@@ -7,10 +8,10 @@ function useBookmarks() {
     else return [];
   });
 
-  const toggleItemInLocalStorage = (id: number) => () => {
-    const isBookmarked = bookmarks.includes(id);
-    if (isBookmarked) setBookmarks((prev: any) => prev.filter((b: any) => b !== id));
-    else setBookmarks((prev: any) => [...prev, id]);
+  const toggleItemInLocalStorage = (pokemon: Pokemon) => () => {
+    const isBookmarked = bookmarks.includes(pokemon);
+    if (isBookmarked) setBookmarks((prev: any) => prev.filter((b: any) => b !== pokemon));
+    else setBookmarks((prev: any) => [...prev, pokemon]);
   };
 
   useEffect(() => {

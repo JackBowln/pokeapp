@@ -1,13 +1,17 @@
-import { Box, LinearProgress, Typography } from "@mui/material";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { Box, Button, LinearProgress, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useBookmarks from "../hooks/useBookmarks";
 import { PokemonApi } from "../services/pokemon-service";
 import { Ability, Move, Stat, Type } from "../types/pokemon";
 
 export const PokemonDetails = () => {
   const [pokemon, setPokemon] = useState<any>([])
   const [loading, setLoading ] = useState<boolean>(true)
-
+  const [bookmarks, toggleBookmark] = useBookmarks();
+  const [bookmarksOnly, setBookmarksOnly] = useState(false);
 
   const { name } = useParams<{ name: string }>();
 
@@ -24,6 +28,10 @@ export const PokemonDetails = () => {
       setLoading(false)
     }
   }
+  const changeBookMarksOnly = (e: any) => {
+    setBookmarksOnly(e.target.checked);
+  };
+  const isBookmarked = bookmarks.some((p:any) => p.name === pokemon.name)
   useEffect(() => {
     getData()
   }, [])
@@ -35,7 +43,11 @@ export const PokemonDetails = () => {
       NOTHING YET
       </div>:
       <div className="flex flex-col items-center mt-6">
-        <Typography variant="h1" align="center" className="first-letter:uppercase">{pokemon.name + "#" + pokemon.order}</Typography>
+        <Typography variant="h2" align="center" className="first-letter:uppercase">{pokemon.name + "#" + pokemon.order}
+        <Button
+          onClick={toggleBookmark(pokemon)}>{isBookmarked ? <FavoriteIcon className="h-40" />: <FavoriteBorderIcon className="h-40"/>}
+        </Button>
+        </Typography>
         <div className="flex">
           <Box
           component="img"
