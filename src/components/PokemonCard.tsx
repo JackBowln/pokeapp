@@ -16,9 +16,9 @@ export const PokemonCard = ({pokemons, isLoading}: PokemonCardProps ) => {
           const isBookmarked = bookmarks.some((p:any) => p.name === data.name)
           return (
           isLoading ?
-          <Skeleton variant="rectangular" width={200} height={150} />
+          <Skeleton key={i} variant="rectangular" width={200} height={150} />
           :
-          <div key={i} data-testid="pokemon">
+          <div key={name} data-testid="pokemon">
           <Card sx={{ maxWidth: 345, width: 200, height: 'auto' }  }>
               <Button
               onClick={toggleBookmark(data)}>{isBookmarked ? <FavoriteIcon />: <FavoriteBorderIcon/>}

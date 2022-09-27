@@ -97,7 +97,7 @@
     }
 
     export interface GenerationI {
-        redBlue: RedBlue;
+        'red-blue': RedBlue;
         yellow: Yellow;
     }
 
@@ -155,8 +155,8 @@
 
     export interface GenerationIii {
         emerald: Emerald;
-        fireredLeafgreen: FireredLeafgreen;
-        rubySapphire: RubySapphire;
+        'firered-leafgreen': FireredLeafgreen;
+        'ruby-sapphire': RubySapphire;
     }
 
     export interface DiamondPearl {
@@ -193,8 +193,8 @@
     }
 
     export interface GenerationIv {
-        diamondPearl: DiamondPearl;
-        heartgoldSoulsilver: HeartgoldSoulsilver;
+        'diamond-pearl': DiamondPearl;
+        'heartgold-soulsilver': HeartgoldSoulsilver;
         platinum: Platinum;
     }
 
@@ -222,7 +222,7 @@
     }
 
     export interface GenerationV {
-        blackWhite: BlackWhite;
+        'black-white': BlackWhite;
     }
 
     export interface OmegarubyAlphasapphire {
@@ -240,8 +240,8 @@
     }
 
     export interface GenerationVi {
-        omegarubyAlphasapphire: OmegarubyAlphasapphire;
-        xy: XY;
+        "omegaruby-alphasapphire": OmegarubyAlphasapphire;
+        "x-y": XY;
     }
 
     export interface Icons {
@@ -335,9 +335,6 @@
         types: Type[];
         weight: number;
     }
-
-
-
 
 
 export interface Result {

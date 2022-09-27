@@ -6,9 +6,7 @@ const PokemonFavorites= () => {
   const [pokemon, setPokemon] = useState<any>([])
   const [loading, setLoading ] = useState<boolean>(false)
   const [page, setPage] = useState<number>(1)
-  const [total, setTotal] = useState<number>(0)
-  const [count, setCount] = useState<number>(0)
-  const [bookmarks, toggleBookmark] = useBookmarks();
+  const [bookmarks] = useBookmarks();
   const perPage: number = 20
 
 
@@ -19,9 +17,6 @@ const PokemonFavorites= () => {
         page * perPage - perPage,
         page * perPage
       ))
-      getCount()
-      console.log(pokemon)
-      
     } catch(err){
       console.error(err)
       setLoading(false)
@@ -32,17 +27,7 @@ const PokemonFavorites= () => {
   
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
-    setCount(Math.ceil(total/perPage))
   };
-
-  const getCount = () => {
-    setTotal(bookmarks.length )
-    console.log(total, bookmarks)
-    console.log(total/perPage);
-    setCount(Math.ceil(total/perPage))
-    console.log(count);
-  }
-
 
   useEffect(() => {
     GetAllData()
@@ -54,7 +39,7 @@ const PokemonFavorites= () => {
         <PokemonCard pokemons={pokemon} isLoading={loading}/>
       </div>
       { (bookmarks.length > perPage) &&
-        <Pagination count={count} page={page} onChange={handleChange} variant="outlined" className="self-center my-6"/>
+        <Pagination count={Math.ceil(bookmarks.length/perPage)} page={page} onChange={handleChange} variant="outlined" className="self-center my-6"/>
       }
     </div>
   )
